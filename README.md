@@ -57,3 +57,7 @@ It will display a distro banner and some system info:
 
 - Also display free space on /mnt/data
     > hello_user /mnt/data
+
+## TODO
+- [ ] Nerdfont Icons
+- [ ] deb package
