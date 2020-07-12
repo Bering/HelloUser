@@ -11,34 +11,11 @@ It will display a distro banner and some system info:
 - free space on /
 - (optionally) free space on other mounting points
 
-```
-            _,met$$$$$gg.
-         ,g$$$$$$$$$$$$$$$P.
-       ,g$$P""       """Y$$.".
-      ,$$P'              `$$$.
-    ',$$P       ,ggs.     `$$b:
-    `d$$'     ,$P"'   .    $$$                               ,#.
-     $$P      d$'     ,    $$P      ##:          :##        :###:
-     $$:      $$.   -    ,d$$'      ##'          `##         `#'
-     $$;      Y$b._   _,d$P'    __  ##     __     ##  __      _     __          _
-     Y$$.    `.`"Y$$$$P"'     ,####:##  ,######.  ##.#####. :### ,######. ###.####:
-     `$$b      "-.__         ,##' `###  ##:  :##  ###' `###  ##' #:   `## `###' `##:
-      `Y$$b                  ##    `##  ##    ##  ##'   `##  ##    ___,##  ##:   `##
-       `Y$$.                 ##     ##  #######:  ##     ##  ##  .#######  ##'    ##
-         `$$b.               ##     ##  ##'       ##     ##  ##  ##'  `##  ##     ##
-           `Y$$b.            ##.   ,##  ##        ##    ,##  ##  ##    ##  ##     ##
-             `"Y$b._         :#:._,###  ##:__,##  ##:__,##' ,##. ##.__:##. ##     ##
-                 `""""       `:#### ###  ######'  `######'  #### `#####"## ##     ##
-
-    Uptime          : up 13 hours, 20 minutes
-    Load averages   : 2.04 1.81 1.68 3/1010 440137
-    Free memory     : 11Gi
-    Free swap       : 0B
-    Free space on / : 32G
-```
+![Screenshot](./screenshot.png)
 
 ## Dependencies
 - linux_logo (https://github.com/deater/linux_logo)
+- NerdFonts (https://www.nerdfonts.com/) (optional)
 - uptime
 - head
 - tail
@@ -53,10 +30,13 @@ It will display a distro banner and some system info:
 ## Usage
 
 - Display the logo and system info like shown above
-    > hello_user
+  > hello_user
 
 - Also display free space on /mnt/data
-    > hello_user /mnt/data
+  > hello_user /mnt/data
+
+- Don't display the icons
+  > hello_user --no-icons
 
 ## TODO
 - [ ] Nerdfont Icons
