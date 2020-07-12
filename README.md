@@ -38,7 +38,7 @@ It will display a distro banner and some system info:
 ```
 
 ## Dependencies
-- linux_logo
+- linux_logo (https://github.com/deater/linux_logo)
 - uptime
 - head
 - tail
