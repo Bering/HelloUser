@@ -26,6 +26,7 @@ It will display a distro banner and some system info:
 - Download
 - Install in your scripts folder
 - Add to .bashrc
+- Make sure your terminal uses a NerdFont (or use --no-icons)
 
 ## Usage
 
@@ -39,5 +40,4 @@ It will display a distro banner and some system info:
   > hello_user --no-icons
 
 ## TODO
-- [ ] Nerdfont Icons
 - [ ] deb package
