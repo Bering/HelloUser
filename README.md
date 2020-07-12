@@ -1,4 +1,4 @@
-# HelloUser
+# hello_user
 Simple greeting script for Linux. Add to .bashrc
 
 Neofetch wanted to pull 26 MB of dependencies when I wanted to install it on my Debian server so I made this instead.
