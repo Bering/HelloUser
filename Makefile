@@ -15,4 +15,7 @@ upload:
 	git push father
 
 install:
-	echo "TODO"
+	install src/hello_user.sh /usr/bin/hello_user.sh
+
+uninstall:
+	rm /usr/bin/hello_user.sh
