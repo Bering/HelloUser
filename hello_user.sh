@@ -1,4 +1,9 @@
 #!/bin/sh
+# 
+# hello_user
+# Tiny script that displays linux_logo banner and some useful info
+# by Bering <bering@ringlogic.com>
+# 
 
 if test "$1" = "--help" || test "$1" = "-h"; then
     echo "Usage: $0 [--no-icons] [mount point]..."
