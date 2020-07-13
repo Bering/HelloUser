@@ -13,6 +13,7 @@ It will display a distro banner and some system info:
 
 ![Screenshot](./screenshot.png)
 
+
 ## Dependencies
 - linux_logo (https://github.com/deater/linux_logo)
 - NerdFonts (https://www.nerdfonts.com/) (optional)
@@ -22,22 +23,38 @@ It will display a distro banner and some system info:
 - awk
 - column
 
+
 ## Installation
-- Download
-- Install in your scripts folder
-- Add to .bashrc
-- Make sure your terminal uses a NerdFont (or use --no-icons)
+- Install the script
+  ```
+  git clone https://github.com/Bering/hello_user.git
+  cd hello_user
+  sudo make install
+  ```
+- Append to your .bashrc, .zshrc, etc...
+  ```
+  echo "hello_user.sh" >> .bashrc
+  ```
+- Make sure your terminal uses a NerdFont (or make sure you use --no-icons)
+
 
 ## Usage
 
 - Display the logo and system info like shown above
-  > hello_user
+  ```
+  hello_user
+  ```
 
 - Also display free space on /mnt/data
-  > hello_user /mnt/data
+  ```
+  hello_user /mnt/data
+  ```
 
 - Don't display the icons
-  > hello_user --no-icons
+  ```
+  hello_user --no-icons
+  ```
+
 
 ## TODO
 - [ ] man page
