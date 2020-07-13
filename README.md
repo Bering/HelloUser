@@ -40,4 +40,9 @@ It will display a distro banner and some system info:
   > hello_user --no-icons
 
 ## TODO
-- [ ] deb package
+- [ ] configure --prefix=/usr ?
+- [ ] make install
+- [ ] man page
+- [ ] DEB package
+- [ ] AUR package
+- [ ] RPM ?
