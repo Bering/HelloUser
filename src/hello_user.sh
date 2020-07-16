@@ -6,9 +6,16 @@
 # 
 
 if test "$1" = "--help" || test "$1" = "-h"; then
-    echo "Usage: $0 [--no-icons] [mount point]..."
+    echo "Usage: $0 [--no-logo] [--no-icons] [mount point]..."
     echo
     exit
+fi
+
+if test "$1" = "--no-logo"; then
+    showlogo=false
+    shift
+else
+    showlogo=true
 fi
 
 if test "$1" = "--no-icons"; then
@@ -18,8 +25,10 @@ else
     showicons=true
 fi
 
-if test -x $(which linux_logo); then linux_logo -l; fi
-echo
+if $showlogo && test -x $(which linux_logo); then
+	linux_logo -l
+	echo
+fi
 
 (
     echo -n "Uptime:"
