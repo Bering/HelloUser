@@ -1,4 +1,4 @@
-MAJOR=1
+MAJOR=2
 MINOR=0
 REVISION=0
 
@@ -8,14 +8,14 @@ clean:
 
 release:
 	mkdir bin
-	tar -zcf bin/hello_user_${MAJOR}.${MINOR}.${REVISION}.tar.gz src/hello_user.sh LICENSE README.md screenshot.png
+	tar -zcf bin/hello_user_${MAJOR}.${MINOR}.${REVISION}.tar.gz hello_user.sh LICENSE README.md screenshot.png
 
 upload:
 	git push github
 	git push father
 
 install:
-	install src/hello_user.sh /usr/bin/hello_user.sh
+	install hello_user.sh /usr/bin/hello_user
 
 uninstall:
-	rm /usr/bin/hello_user.sh
+	rm /usr/bin/hello_user
