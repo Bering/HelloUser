@@ -15,7 +15,6 @@ It will display a distro banner and some system info:
 
 
 ## Dependencies
-- linux_logo (https://github.com/deater/linux_logo)
 - NerdFonts (https://www.nerdfonts.com/) (optional)
 - uptime
 - head
@@ -33,7 +32,7 @@ It will display a distro banner and some system info:
   ```
 - Append to your .bashrc, .zshrc, etc...
   ```
-  echo "hello_user.sh" >> .bashrc
+  echo "hello_user" >> .bashrc
   ```
 - Make sure your terminal uses a NerdFont (or make sure you use --no-icons)
 
@@ -47,17 +46,10 @@ It will display a distro banner and some system info:
 
 - Also display free space on /mnt/data
   ```
-  hello_user /mnt/data
+  hello_user -m "/,/mnt/data"
   ```
 
 - Don't display the icons
   ```
   hello_user --no-icons
   ```
-
-
-## TODO
-- [ ] man page
-- [ ] DEB package
-- [ ] AUR package
-- [ ] RPM ?

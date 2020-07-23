@@ -1,11 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 # 
 # hello_user
 # Script that displays neofetch logo and some useful info
 # by Bering <bering@ringlogic.com>
 # 
-
-#!/bin/bash
 
 cache_uname() {
     # Cache the output of uname so we don't
