@@ -5674,16 +5674,14 @@ print_info() {
             echo -n "Free space on $mp:"
             if $showicons; then echo -n ":"; fi
             df -h $mp | tail -n 1 | awk '{ print $4 }'
-            shift
         done
 
         echo
     ) | column -t -s ":"
 }
 
-main() {
-
-    distro="auto"
+load_default_config() {
+    distro=""
     showlogo=true
     showicons=true
     showusage=false
@@ -5694,61 +5692,86 @@ main() {
     image_source="auto"
     ascii_colors=(distro)
     ascii_bold="on"
+}
 
-    while [ -n "$1" ]; do
+parse_args() {
+    
+    args=$(getopt --options="hlid:m:" --longoptions="help,no-logo,no-icons,distro,mountpoints" --name="hello_user" -- "$@")
+    if [ $? -ne 0 ]; then
+        exit 1
+    fi
 
-        if [ "$1" = "-d" ]; then
-            shift
-            distro="$1"
-            ascii_distro="$1"
-            shift
-        fi
+    eval set -- $args
 
-        if [ "$1" = "--no-logo" ]; then showlogo=false; shift; fi
-        if [ "$1" = "-l" ]; then showlogo=false; shift; fi
-
-        if [ "$1" = "--no-icons" ]; then showicons=false; shift; fi
-        if [ "$1" = "-i" ]; then showicons=false; shift; fi
-
-        if [ "$1" = "--help" ]; then showusage=true; shift; fi
-        if [ "$1" = "-h" ]; then showusage=true; shift; fi
-
-        if [ "$1" = "-m" ]; then
-            shift
-            mountpoints="$1"
-            shift
-        fi
-
-        if [ -n "$1" ]; then
-            printf "Unknown parameter: $1\n"
-            shift
-        fi
-
+    while true; do
+        case "$1" in
+            --help|-h)
+                showusage=true
+                shift
+                ;;
+            --distro|-d)
+                distro="$2"
+                ascii_distro="$2"
+                shift 2
+                ;;
+            --no-logo|-l)
+                showlogo=false
+                shift
+                ;;
+            --no-icons|-i)
+                showicons=false
+                shift
+                ;;
+            -li|-il)
+                showlogo=false
+                showicons=false
+                shift
+                ;;
+            --mountpoints|-m)
+                mountpoints="$2"
+                shift 2
+                ;;
+            --)
+                shift
+                break;
+                ;;
+            *)
+                echo "Programming error !?"
+                exit 2
+                ;;
+        esac
     done
 
-    #printf $distro
-    #printf $showlogo
-    #printf $showicons
-    #printf $showusage
-    #printf $mountpoints
-    #exit
+    for arg in "$@"; do
+        echo "Invalid argument: $arg"
+    done
+}
+
+show_usage() {
+    echo "Usage: hello_user.sh [-d distroname] [--no-logo] [-l] [--no-icons] [-i] [-m \"mount,points\"]"
+    echo "       -d distroname        Override distro autodetection"
+    echo "       --no-logo            Don't show any logo"
+    echo "       -l                   Same as --no-logo"
+    echo "       --no-icons           Don't show any Nerd Font icons"
+    echo "       -i                   Same as --no-icons"
+    echo "       -m mount,points      Mount points to show the free space off. Comma separated."
+    echo
+}
+
+main() {
+
+    load_default_config
+    parse_args "$@"
 
     if $showusage; then
-        echo "Usage: hello_user.sh [-d distroname] [--no-logo] [-l] [--no-icons] [-i] [-m \"mount,points\"]..."
-        echo "       -d distroname        Override distro autodetection"
-        echo "       --no-logo            Don't show any logo"
-        echo "       -n                   Same as --no-logo"
-        echo "       --no-icons           Don't show any Nerd Font icons"
-        echo "       -i                   Same as --no-icons"
-        echo "       -m mount,points      Mount points to show the free space off. Comma separated."
-        echo
+        show_usage
         exit
     fi
 
     cache_uname
     get_os
 
-    if $distro = "auto"; then
+    if [ -z $distro ]; then
         get_distro
     fi
 
